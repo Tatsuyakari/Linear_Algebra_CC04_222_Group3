@@ -75,7 +75,7 @@ disp ("the inverse of the encoding matrix A-1 is")
 disp(C)
 ```
 
-the output is:
+The output of the code is shown below:
 
 ```matlab
 the inverse of the encoding matrix A-1 is
@@ -285,3 +285,134 @@ disp(l);
 ```
 
 The final part of the code prints out the length of u using the `disp()` function.
+
+The output of the code is shown below:
+
+```matlab
+>> Q2
+Enter the dimension of R^n: 
+2
+Enter the number of vectors: 
+3
+Enter vector 1:
+1
+3
+Enter vector 2:
+4
+6
+Enter vector 3:
+3
+9
+The orthonormal basis is:
+   -0.2236   -0.6708
+   -0.6708    0.2236
+
+Enter a vector in R^n:
+3
+6
+The coordinates in Q are:
+   -4.6957
+   -0.6708
+
+The length of u is:
+    6.7082
+```
+
+<!-- page break -->
+
+<div style="page-break-after: always;"></div>
+
+## Problem 3
+
+In $\mathbb{R}^2$, the weighted inner product is given by
+$$
+\langle x, y\rangle=a x_1 y_1+b x_2 y_2
+$$
+where $a$ and $b$ are positive. Find a weighted inner product such that the graph represents a unit circle as
+<img src="assets\graph.png" alt="Q3 Graph" style="height: 200px;display: block;  margin-left: auto;
+  margin-right: auto;">
+
+In that inner product space, reflect that unit circle about an input plane.
+
+### Theory
+
+The weighted inner product space in $\mathbb{R}^2$ is given by
+$$\langle\mathrm{x}, \mathrm{y}\rangle=\mathrm{ax}_1 \mathrm{y}_1+\mathrm{bx}_2 \mathrm{y}_2 \\
+\mathrm{x}=\left(\mathrm{x}_1, \mathrm{x}_2\right), \mathrm{y}=\left(\mathrm{y}_1, \mathrm{y}_2\right)$$
+Then
+$$\langle\mathrm{x}, \mathrm{x}\rangle=\mathrm{ax}_1^2+\mathrm{bx}_2^2 \\
+\|\mathrm{x}\|=\sqrt{\mathrm{ax}_1^2+\mathrm{bx}_2^2}$$
+
+Now, the unit circle is given by the ellipse whose vertices are $(2,0),(-2,0)$ and co-vertices are $(0,3),(0,-3)$. The equation of the ellipse is
+$$
+\begin{aligned}
+& \frac{\left(x_1-\mathrm{h}\right)^2}{\mathrm{a}^2}+\frac{\left(\mathrm{x}_2-\mathrm{k}\right)^2}{\mathrm{~b}^2}=1 \\
+& \frac{\left(\mathrm{x}_1-0\right)^2}{2^2}+\frac{\left(x_2-0\right)^2}{3^2}=1
+\end{aligned}
+$$
+Center of the ellipse is $(h, k)=(0,0)$
+
+$$
+\frac{1}{4} x_1^2+\frac{1}{9} x_2^2=1
+$$
+If $\|x\|=1$ then we have,
+$$
+\mathrm{ax}_1^2+\mathrm{bx}_2^2=\frac{1}{4} \mathrm{x}_1^2+\frac{1}{9} \mathrm{x}_2^2
+$$
+For all $\|x\|=1$.
+Now, we have the values for 'a' and 'b'.
+$$
+a=\frac{1}{4} \quad \text { and } \quad b=\frac{1}{9}
+$$
+FInal answer
+The weighted inner product space reflected by the unit circle about an input plane is
+$$
+\langle\mathrm{x}, \mathrm{y}\rangle=\frac{1}{4} \mathrm{x}_1 \mathrm{y}_1+\frac{1}{9} \mathrm{x}_2 \mathrm{y}_2
+$$
+
+### Matlab Code
+
+This code takes two random points on the elliptical curve `x^2/4 + y^2/9 = 1` and computes a linear combination of these points that satisfies the property of being a point on the curve. Now let's go through it line by line:
+
+```matlab
+%choose 2 ramdom point on the given ellipse
+x1=input("x1");
+x2=input("x2");
+```
+
+These lines prompt the user to input two values, which are assigned to the variables `x1` and `x2`. These values will be used as the x-coordinates of two points on the elliptical curve.
+
+```matlab
+y1=3*sqrt(1-x1.^2/4);
+y2=3*sqrt(1-x2.^2/4);
+```
+
+These lines compute the y-coordinates of the two points on the elliptical curve. The formula for an ellipse centered at the origin is `x^2/a^2 + y^2/b^2 = 1`. In this case, we have `a = 2` and `b = 3`. Solving for `y`, we get `y = +/- (3/b)*sqrt(b^2 - x^2)`. Since we want the positive `y` value, we use `y = 3*sqrt(1-x^2/4)`.
+
+```matlab
+%set up the matrixs to find a and b
+A=[x1.^2 y1.^2;x2.^2 y2.^2]\[1;1];
+a=A(1,1);%a
+b=A(2,1);%b
+```
+
+These lines set up a 2x2 matrix equation to solve for `a` and `b`. Specifically, we want to find the coefficients `a` and `b` such that `a*x1*y1 + b*x2*y2 = 1` (since we're looking for a linear combination of these two points on the elliptical curve). We can rewrite this equation as `[x1*y1 x2*y2]*[a; b] = 1`, which is a matrix equation of the form `Ax = b`. The matrix `A` is constructed using the x- and y-coordinates of the two points, and the vector `b` is just the scalar value 1. We then use the backslash operator `\` to solve for `x`, which gives us the values of `a` and `b`.
+
+```matlab
+disp(['the final result is: <x,y>=',num2str(a),'*x1y1+',num2str(b),'*x2y2'])
+```
+
+Finally, this line displays the output message as a string, where the computed values of `a` and `b` are inserted into the message. The `num2str` function converts the numbers to strings so that they can be concatenated with the rest of the message.
+
+The output of the code is shown below:
+
+```matlab
+>> Q3
+x1
+1
+x2
+2
+the final result is: <x,y>=0.25*x1y1+0.11111*x2y2
+```
+
+In this code, we saw how to take two random points on the elliptical curve x^2/4 + y^2/9 = 1, compute their coordinates, and find a linear combination of those points that also lies on the curve. This was achieved by solving a matrix equation to find the coefficients of the linear combination. The resulting <x,y> pair represents a new point on the elliptical curve that can be used for various applications in geometry, cryptography, and other fields.
