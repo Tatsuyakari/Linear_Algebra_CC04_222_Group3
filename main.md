@@ -3,7 +3,7 @@
 **University of Technology - HCMC Faculty of Applied Mathematics**
 **Linear Algebra Project Semester 222 (2022 - 2023)**
 **Instructor: Đậu Thế Phiệt**
-<img src="C:\Users\kenng\Documents\Obsidian Vault\01_logobachkhoasang.png" alt="MarineGEO circle logo" style="height: 100px; position: absolute;
+<img src="assets\01_logobachkhoasang.png" alt="LogoBachKhoa" style="height: 100px; position: absolute;
   right : 0px;
   top: 0px;"/>
 
