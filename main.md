@@ -3,16 +3,18 @@
 **University of Technology - HCMC Faculty of Applied Mathematics**
 **Linear Algebra Project Semester 222 (2022 - 2023)**
 **Instructor: Đậu Thế Phiệt**
-<img src="assets\01_logobachkhoasang.png" alt="LogoBachKhoa" style="height: 100px; position: absolute;
+<img src="assets\BK_logo.png" alt="LogoBachKhoa" style="height: 100px; position: absolute;
   right : 0px;
   top: 0px;"/>
 
 | **Student ID** | **Full Name**            | **Task**  | **Contribute** |
 |----------------|--------------------------|-----------|----------------|
 |     1952161    | Garcinez Villano Hannah  |   Video   |       25%      |
-|     2153307    | Nguyễn Huỳnh Đức         | Problem 1 |       25%      |
-|     2210503    | Lê Anh Duy               | Problem 3 |       25%      |
-|     1952242    | Nguyễn Lê Thanh Hào      | Problem 2 |       25%      |
+|     2153307    | Nguyễn Huỳnh Đức         | [Problem 1](#problem-1) |       25%      |
+|     2210503    | Lê Anh Duy               | [Problem 3](#problem-3) |       25%      |
+|     1952242    | Nguyễn Lê Thanh Hào      | [Problem 2](#problem-2) |       25%      |
+**Table of contents**
+[Problem 1](#problem-1) [Problem 2](#problem-2) [Problem 3](#problem-3)
 
 ## Problem 1
 <!-- font: times new roman -->
